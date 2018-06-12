@@ -12,7 +12,7 @@ const pvp = require("losand.pvp");
 pvp(__dirname + '/public', 'index.html').listen(process.env.PORT, process.env.IP);
 ~~~
 
-###Creat a public folder and make in a index.html
+### Creat a public folder and make in a index.html
 You use it tags
 
 ~~~html
