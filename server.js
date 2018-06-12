@@ -11,7 +11,7 @@
     ))
     .$(sv => _(new (require('ws').Server)({server : sv})).on({
         connection: ws => _(
-            offing._.length <= 0 ? offing.$(a => a.push(ws.send(JSON.stringify(false)))) : ansing.$(a => a.push(ws.send(offing._[0].sdp)))
+            offing._.length <= 0 ? offing.$(a => a.push(ws.send(_(false).json))) : ansing.$(a => a.push(ws.send(offing._[0].sdp)))
         )
         .$($ => _(ws).on({
             'close': m => $.map(a => a.filter(v => v !== ws)),

@@ -18,10 +18,10 @@ const PvP = _((
     ]
 ) => new Promise((res = (v) => v) => _({
         message (e) {
-            e.data.json ?
+            e.data.json._ ?
             PvP.rtc.$(r => {
-                r.setRemoteDescription(new RTCSessionDescription(e.data.json));
-                r.createAnswer().then(v => r.setLocalDescription(new RTCSessionDescription(v)), (e) => e);
+                r.setRemoteDescription(new RTCSessionDescription(e.data.json._));
+                r.localDescription || r.createAnswer().then(v => r.setLocalDescription(new RTCSessionDescription(v)), (e) => e);
             }) :
             PvP.rtc.$(r => {
                 $(r.createDataChannel("talk")).on(this.datachannel, "open");
