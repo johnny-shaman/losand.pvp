@@ -1,10 +1,19 @@
 {
   "name": "losand.pvp",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "webRTC PvP connection on Datachannel with losand",
   "main": "server.js",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "http": "^0.0.0",
+    "losand": "^0.0.33",
+    "ws": "^5.2.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -20,12 +29,5 @@
   "bugs": {
     "url": "https://github.com/johnny-shaman/losand.pvp/issues"
   },
-  "homepage": "https://github.com/johnny-shaman/losand.pvp#readme",
-  "dependencies": {
-    "cors": "^2.8.4",
-    "express": "^4.16.3",
-    "http": "0.0.0",
-    "losand": "0.0.33",
-    "ws": "^5.2.0"
-  }
+  "homepage": "https://github.com/johnny-shaman/losand.pvp#readme"
 }

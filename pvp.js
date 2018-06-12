@@ -35,11 +35,22 @@ const PvP = _((
             _(this).$(($, f) => {
                 f.signaling.$(s => s.close()).off($, "message");
                 f.rtc.off($, "icecandidate", "datachannel");
-                res(e.target === f.rtc._ ? e.channel : _(e.target).off(this.datachannel, "open")._);
+                _(f).draw(e.target === f.rtc._ ? _(e.channel) : _(e.target).off(this.datachannel, "open"));
+                res(f._);
             }, PvP);
         },
     }).$(o => {
-        body.$(iframe._({src: `${ssl ? "https" : "http"}://${uri}`}));
+        body.$(
+            iframe
+            ._({
+                src: `${ssl ? "https" : "http"}://${uri}`
+            })
+            .css({
+                width: "1px",
+                height: "1px",
+                display: "block",
+                border: "none"
+            }));
         _(PvP).draw({
             signaling: _($(new WebSocket(`${ssl ? "wss" : "ws"}://${uri}`)).on(o, "message").n),
             rtc : _($(new RTCPeerConnection({iceServers: l})).on(o, "icecandidate", "datachannel").n)
@@ -48,4 +59,5 @@ const PvP = _((
 .draw({
     signaling: undefined,
     rtc : undefined,
+    _: undefined
 });

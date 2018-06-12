@@ -1,12 +1,12 @@
 (() => {
     const _ = require("losand");
     const {offing, ansing} = {offing: _([]), ansing: _([])};
-    module.exports = _(require('http').createServer(_(require('express'))
+    module.exports = (dir, file) => _(require('http').createServer(_(require('express'))
         .map($ => ({app: $(), "static": $.static})).map($ => _($.app).$(a => {
             a.use(require('cors')());
-            a.set("view options", {layout: false});
-            a.use($.static(__dirname + '/public'));
-            a.get('/', (req, res) => res.render("index.html"));
+            a.set('view options', {layout: false});
+            a.use($.static(dir));
+            a.get('/', (req, res) => res.render(file));
         })._)._
     ))
     .$(sv => _(new (require('ws').Server)({server : sv})).on({
