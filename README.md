@@ -16,9 +16,9 @@ pvp(__dirname + '/public', 'index.html').listen(process.env.PORT, process.env.IP
 You use it tags
 
 ~~~html
-    <script src="https://cdn.jsdelivr.net/npm/losand@0.0.31/losand.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/losand@0.0.31/dsand.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/losand.pvp@0.0.13/pvp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/losand@0.0.33/losand.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/losand@0.0.33/dsand.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/losand.pvp@0.0.15/pvp.js"></script>
     <script>
         const peer = PvP(uri, ssl).then(c => peer = c.$(c => c.send("hello")).on({message: (e) => console.log(e.data)}));
     </script>

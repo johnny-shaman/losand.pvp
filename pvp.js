@@ -60,4 +60,4 @@ const PvP = _((
     signaling: undefined,
     rtc : undefined,
     _: undefined
-});
+})._;
