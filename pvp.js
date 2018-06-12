@@ -9,9 +9,9 @@
 */
 
 const PvP = _((
-    term,
     uri,
     ssl,
+    term,
     l = [
         {url: "stun:stun.l.google.com:19302"},
         {url: "stun:stun3.l.google.com:19302"},
