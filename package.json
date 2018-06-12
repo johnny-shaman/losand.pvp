@@ -1,6 +1,6 @@
 {
   "name": "losand.pvp",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "webRTC PvP connection on Datachannel with losand",
   "main": "server.js",
   "dependencies": {
