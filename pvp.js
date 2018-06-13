@@ -21,7 +21,7 @@ const PvP = _((
             e.data.json._ ?
             PvP.rtc.$(r => {
                 r.setRemoteDescription(new RTCSessionDescription(e.data.json._));
-                r.localDescription || r.createAnswer().then(v => r.setLocalDescription(new RTCSessionDescription(v)), (e) => e);
+                r.createAnswer().then(v => r.setLocalDescription(new RTCSessionDescription(v)), (e) => e);
             }) :
             PvP.rtc.$(r => {
                 $(r.createDataChannel("talk")).on(this.datachannel, "open");
