@@ -7,14 +7,13 @@
             app: $(),
             "static": $.static
         }))
-        .map($ => $.app.configure(
-                _($.app).$(a => {
-                    a.use(require('cors')());
-                    a.use($.static(`${__dirname}/public`));
-                    a.set('view options', {layout: false});
-                    a.get('/', (req, res) => res.render('index.html'));
-                })._
-            )
+        .map($ => 
+            _($.app).$(a => {
+                a.use(require('cors')());
+                a.use($.static(dir));
+                a.set('view options', {layout: false});
+                a.get('/', (req, res) => res.render(file));
+            })._
         )._
     ))
     .$(sv => _(new (require('ws').Server)({server : sv})).on({
