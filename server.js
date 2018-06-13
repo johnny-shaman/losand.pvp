@@ -1,28 +1,47 @@
 (() => {
     const _ = require("losand");
     const {offing, ansing} = {offing: _([]), ansing: _([])};
-    module.exports = (dir, file) => _(require('http').createServer(_(require('express'))
-        .map($ => ({app: $(), "static": $.static})).map($ => _($.app).$(a => {
-            a.use(require('cors')());
-            a.set('view options', {layout: false});
-            a.use($.static(dir));
-            a.get('/', (req, res) => res.render(file));
-        })._)._
+    module.exports = (dir, file, contruct) => _(require('http').createServer(
+        _(require('express'))
+        .map($ => ({
+            app: $(),
+            "static": $.static
+        }))
+        .map($ => _($.app)
+            .$(a => {
+                a.use(require('cors')());
+                a.use($.static(`${__dirname}/public`));
+                a.set('view options', {layout: false});
+                a.get('/', (req, res) => res.render('index.html'));
+            })._
+        )._
     ))
     .$(sv => _(new (require('ws').Server)({server : sv})).on({
         connection: ws => _(
-            offing._.length <= 0 ? offing.$(a => a.push(ws.send(_(false).json))) : ansing.$(a => a.push(ws.send(offing._[0].sdp)))
+            offing._.length <= 0 ?
+            offing.$(a => a.push(
+                _(ws)
+                .$($ => $.send(_(false).json))
+                .on({
+                    'message': m => _(ws).draw({sdp: m}).$($ => console.log(m))
+                })._
+            )) :
+            ansing.$(a => a.push(
+                _(ws)
+                .$($ => $.send(offing._[0].sdp))
+                .on({
+                    'message': m => a.filter(v => (v !== ws && contruct !== undefined ? contruct(_(offing._[0].sdp.json._.term), m.json) : true) || offing.$(o => {
+                        console.log(m);
+                        o[0].send(m);
+                        o[0].close();
+                        o.shift();
+                        v.close();
+                    }) && false)
+                })._
+            ))
         )
-        .$($ => _(ws).on({
-            'close': m => $.map(a => a.filter(v => v !== ws)),
-            'message': m => $.$($$ => $$ === offing._ ?
-            $$.each(v => v === ws && _(v).draw({sdp: m})) :
-            $$.filter(v => v !== ws || offing.$(o => {
-                v.close();
-                o[0].send(m);
-                o[0].close();
-                o.shift();
-            }) && false))
+        .$(a => _(ws).on({
+            'close': m => a.filter(v => v !== ws)
         }))
-    }))._;
+    }))._.listen(process.env.PORT, process.env.IP);
 })();

@@ -29,7 +29,7 @@ const PvP = _((
             });
         },
         icecandidate (e) {
-            e.candidate && PvP.rtc.$(r => PvP.signaling._.send(_(r.localDescription).drop(term).json));
+            e.candidate && PvP.rtc.$(r => PvP.signaling._.send(_(r.localDescription).draw(term).json));
         },
         datachannel (e) {
             _(this).$(($, f) => {
