@@ -1,7 +1,7 @@
 (() => {
     const _ = require("losand");
     const {offing, ansing} = {offing: _([]), ansing: _([])};
-    module.exports = (dir, file, contruct) => _(require('http').createServer(
+    module.exports = (dir, file, contruct) =>_(require('http').createServer(
         _(require('express'))
         .map($ => ({
             app: $(),
@@ -23,15 +23,14 @@
                 _(ws)
                 .$($ => $.send(_(false).json))
                 .on({
-                    'message': m => _(ws).draw({sdp: m}).$($ => console.log(m))
+                    'message': m => _(ws).draw({sdp: m})
                 })._
             )) :
             ansing.$(a => a.push(
                 _(ws)
                 .$($ => $.send(offing._[0].sdp))
                 .on({
-                    'message': m => a.filter(v => (v !== ws && contruct !== undefined ? contruct(_(offing._[0].sdp.json._.term), m.json) : true) || offing.$(o => {
-                        console.log(m);
+                    'message': m => a.filter(v => v !== ws || offing.$(o => {
                         o[0].send(m);
                         o[0].close();
                         o.shift();
@@ -41,7 +40,7 @@
             ))
         )
         .$(a => _(ws).on({
-            'close': m => a.filter(v => v !== ws)
+            'close': m => a.map($ => $.filter(v => v !== ws))
         }))
     }))._.listen(process.env.PORT, process.env.IP);
 })();
