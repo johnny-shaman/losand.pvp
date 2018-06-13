@@ -32,10 +32,13 @@ const PvP = _((
             e.candidate && PvP.rtc.$(r => PvP.signaling._.send(_(r.localDescription).draw(term).json));
         },
         datachannel (e) {
-            _(this).$(($, f) => {
-                f.signaling.$(s => s.close()).off($, "message");
-                f.rtc.off($, "icecandidate", "datachannel");
-                _(f).draw(e.target === f.rtc._ ? _(e.channel) : _(e.target).off(this.datachannel, "open"));
+            _(this).$((me, f) => {
+                f.signaling.$(s => {
+                    s.close();
+                    $(s).off(me, "message");
+                });
+                $(f.rtc._).off(me, "icecandidate", "datachannel");
+                _(f).draw(e.target === f.rtc._ ? _(e.channel) : _(e.target).off(me.datachannel, "open"));
                 res(f._);
             }, PvP);
         },
