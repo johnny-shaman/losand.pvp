@@ -38,7 +38,7 @@ const PvP = _((
                     $(s).off(me, "message");
                 });
                 $(f.rtc._).off(me, "icecandidate", "datachannel");
-                _(f).draw(e.target === f.rtc._ ? _(e.channel) : _(e.target).off(me.datachannel, "open"));
+                _(f).draw({_: e.target === f.rtc._ ? _(e.channel) : _($(e.target).off(me.datachannel, "open").n)});
                 res(f._);
             }, PvP);
         },
