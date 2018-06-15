@@ -1,7 +1,7 @@
 (() => {
     const _ = require("losand");
     const {offing, ansing} = {offing: _([]), ansing: _([])};
-    module.exports = (dir, file, contruct) =>_(require('http').createServer(
+    module.exports = (dir, file) =>_(require('http').createServer(
         _(require('express'))
         .map($ => ({
             app: $(),
@@ -30,12 +30,12 @@
                 _(ws)
                 .$($ => $.send(offing._[0].sdp))
                 .on({
-                    'message': m => a.filter(v => v !== ws || offing.$(o => {
+                    'message': m => ansing.map(() => a.filter(v => v !== ws || offing.$(o => {
                         o[0].send(m);
                         o[0].close();
                         o.shift();
                         v.close();
-                    }) && false)
+                    }) && false))
                 })._
             ))
         )
