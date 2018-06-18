@@ -16,28 +16,46 @@ const PvP = _((
         {url: "stun:stun.l.google.com:19302"},
         {url: "stun:stun3.l.google.com:19302"},
     ]
-) => new Promise((res = (v) => v) => _({
+) => new Promise((res = (v) => v) => _(PvP).$(f => _({
         message (e) {
             e.data.json._ ?
             PvP.rtc.$(r => {
-                r.setRemoteDescription(new RTCSessionDescription(e.data.json._));
-                r.createAnswer().then(v => r.setLocalDescription(new RTCSessionDescription(v)), (e) => e);
+                r.setRemoteDescription(
+                    new RTCSessionDescription(e.data.json._)
+                );
+                r.createAnswer()
+                .then(v => r.setLocalDescription(
+                    new RTCSessionDescription(v)
+                ), (e) => e);
             }) :
             PvP.rtc.$(r => {
-                $(r.createDataChannel("talk")).on(this.datachannel, "open");
-                r.createOffer().then(v => r.setLocalDescription(new RTCSessionDescription(v)), (e) => e);
+                $(r.createDataChannel("talk"))
+                .on(this.datachannel, "open");
+                r.createOffer()
+                .then(v => r.setLocalDescription(
+                    new RTCSessionDescription(v)
+                ), (e) => e);
             });
         },
         icecandidate (e) {
-            e.candidate && PvP.rtc.$(r => PvP.signaling._.send(_(r.localDescription).draw(term).json));
+            e.candidate && PvP.rtc.$(
+                r => PvP.signaling._.send(
+                    _(r.localDescription).draw(term).json
+                )
+            );
         },
         datachannel (e) {
-            _(this).$((me, f) => {
-                f.signaling.$(s => s.close()).$(s => $(s).off(me, "message"));
-                $(f.rtc._).off(me, "icecandidate", "datachannel");
-                _(f).draw({_: e.target === f.rtc._ ? _(e.channel) : _($(e.target).off(me.datachannel, "open").n)});
-                res(f._);
-            }, PvP);
+             _(this)
+                .off(f.signaling.$($ => $.close())._, "message")
+                .off(f.rtc._, "icecandidate", "datachannel")
+            .$(o => _(o).draw({
+                _: (
+                    e.target === f.rtc._ ?
+                    _(e.channel) :
+                    _($(e.target).off(o.datachannel, "open").n)
+                )
+            }));
+            res(PvP._);
         },
     }).$(o => {
         body.$(
@@ -50,14 +68,13 @@ const PvP = _((
                 height: "1px",
                 display: "block",
                 border: "none"
-            }));
-        _(PvP).draw({
+            })
+        );
+        f.draw({
             signaling: _($(new WebSocket(`${ssl ? "wss" : "ws"}://${uri}`)).on(o, "message").n),
-            rtc : _($(new RTCPeerConnection({iceServers: l})).on(o, "icecandidate", "datachannel").n)
+            rtc : _($(new RTCPeerConnection({iceServers: l})).on(o, "icecandidate", "datachannel").n),
+            _: undefined
         });
-    })))
-.draw({
-    signaling: undefined,
-    rtc : undefined,
-    _: undefined
-})._;
+    })
+)))._;
+
