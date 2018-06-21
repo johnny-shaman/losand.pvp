@@ -15,9 +15,9 @@ require("losand.pvp")(__dirname + '/public', 'index.html');
 You use it tags
 
 ~~~html
-    <script src="https://cdn.jsdelivr.net/npm/losand@0.1.0/losand.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/losand@0.1.0/dsand.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/losand.pvp@0.1.0/pvp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/losand@0.1.1/losand.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/losand@0.1.1/dsand.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/losand.pvp@0.1.1/pvp.js"></script>
     <script>
         const peer = PvP(uri, ssl).then(c => peer = c.$(c => c.send("hello")).on({message: (e) => console.log(e.data)}));
     </script>

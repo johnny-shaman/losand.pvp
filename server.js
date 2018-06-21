@@ -21,14 +21,14 @@
             offing._.length <= 0 ?
             offing.$(a => a.push(
                 _(ws)
-                .$($ => $.send(_(false).json))
+                .$(s => s.send(_(false).json))
                 .on({
                     'message': m => _(ws).draw({sdp: m})
                 })._
             )) :
             ansing.$(a => a.push(
                 _(ws)
-                .$($ => $.send(offing._[0].sdp))
+                .$(s => s.send(offing._[0].sdp))
                 .on({
                     'message': m => ansing.map(() => a.filter(v => v !== ws || offing.$(o => {
                         o[0].send(m);
