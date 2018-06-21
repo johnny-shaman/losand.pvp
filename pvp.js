@@ -48,7 +48,7 @@ const PvP = _((
              _(this)
                 .off(PvP.signaling.$($ => $.close())._, "message")
                 .off(PvP.rtc._, "icecandidate", "datachannel")
-            .$(o => _(o).draw({
+            .$(o => _(PvP).draw({
                 _: (
                     e.target === PvP.rtc._ ?
                     _(e.channel) :
