@@ -17,7 +17,7 @@ const PvP = (
         {url: "stun:stun.l.google.com:19302"},
         {url: "stun:stun3.l.google.com:19302"},
     ]
-) => _(new Promise((res = (v) => v) => _({
+) => new Promise((res = (v) => v) => _({
         message (e) {
             e.data.json._ ?
             PvP.rtc.$(r => {
@@ -77,4 +77,4 @@ const PvP = (
             _: undefined
         });
     })
-)).draw({_: PvP._})._;
+);
