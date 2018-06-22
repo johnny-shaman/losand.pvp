@@ -1,13 +1,13 @@
 {
   "name": "losand.pvp",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "webRTC PvP connection on Datachannel with losand",
   "main": "server.js",
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "http": "^0.0.0",
-    "losand": "^0.1.1",
+    "losand": "^0.1.2",
     "ws": "^5.2.0"
   },
   "devDependencies": {},

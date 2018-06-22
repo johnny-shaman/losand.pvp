@@ -6,17 +6,18 @@
         RTCPeerConnection
         body
         iframe
+        env
 */
 
-const PvP = _((
-    uri,
-    ssl,
+const PvP = (
+    uri = env.here,
+    ssl = env.https,
     term = {},
     l = [
         {url: "stun:stun.l.google.com:19302"},
         {url: "stun:stun3.l.google.com:19302"},
     ]
-) => new Promise((res = (v) => v) => _({
+) => _(new Promise((res = (v) => v) => _({
         message (e) {
             e.data.json._ ?
             PvP.rtc.$(r => {
@@ -76,4 +77,4 @@ const PvP = _((
             _: undefined
         });
     })
-))._;
+)).draw({_: PvP._})._;
