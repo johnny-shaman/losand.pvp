@@ -17,7 +17,7 @@ You use it tags
     <script src="https://cdn.jsdelivr.net/npm/losand@0.1.2/dsand.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/losand.pvp@0.1.4/pvp.js"></script>
     <script>
-        const peer = PvP().then(c => _(c).$(c => c.send("hello")).on({message: (e) => console.log(e.data)}));
+        const peer = PvP().then(c => _(c).$(c => c.send("hello")).on({message: (e) => console.log(e.data)}))._;
     </script>
 ~~~
 
