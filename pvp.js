@@ -55,7 +55,7 @@ const PvP = _((
                     _($(e.target).off(o.datachannel, "open").n)
                 )
             }));
-            res(PvP._);
+            res(PvP._._);
         },
     }).$(o => {
         body.$(
