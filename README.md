@@ -13,12 +13,17 @@ require("losand.pvp")(__dirname + '/public', 'index.html');
 ### Creat a public folder and make in a index.html
 You use it tags
 ~~~html
-    <script src="https://cdn.jsdelivr.net/npm/losand@0.3.2/losand.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dsand@0.0.3/dsand.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dsand@0.0.3/pvp.js"></script>
-    <script>
-        const peer = PvP().then(c => _(c).$(c => c.send("hello")).on({message: (e) => console.log(e.data)}));
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/losand@1.0.1/losand.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.1.1/dsand.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.1.1/pvp.js"></script>
+  <script>
+    _($.role).draw({
+      establish (c) {
+        // Anything do when connection Established
+      }
+    })
+    PvP();
+  </script>
 ~~~
 
 ~~~bash
