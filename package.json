@@ -1,6 +1,6 @@
 {
   "name": "losand.pvp",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "webRTC PvP connection on Datachannel with losand",
   "main": "server.js",
   "dependencies": {
@@ -25,7 +25,7 @@
     "functional"
   ],
   "author": "Noboru Okazaki",
-  "license": "GPL-3.0",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/johnny-shaman/losand.pvp/issues"
   },
