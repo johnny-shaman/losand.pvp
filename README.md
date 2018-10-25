@@ -7,9 +7,12 @@
 npm i losand.pvp
 ~~~
 
+
+
 ### import server.js file
 ~~~javascript
-require("losand.pvp")(__dirname + '/public', 'index.html');
+require("losand.pvp")(__dirname + '/public', 'index.html', port, ip);
+//port and ip is opthional
 ~~~
 
 ### Creat a public folder and make in a index.html

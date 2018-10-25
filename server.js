@@ -1,7 +1,7 @@
 (() => {
   const _ = require("losand");
   const {offing, ansing} = {offing: _([]), ansing: _([])};
-  module.exports = (dir, file) => _(require('http').createServer(
+  module.exports = (dir, file, port, ip) => _(require('http').createServer(
     _(require('express'))
     .map($ => ({
       app: $(),
@@ -42,5 +42,5 @@
     .$(a => _(ws).on({
       'close': m => a.map($ => $.filter(v => v !== ws))
     }))
-  }))._.listen(process.env.PORT, process.env.IP);
+  }))._.listen(port || process.env.PORT, ip || process.env.IP);
 })();
