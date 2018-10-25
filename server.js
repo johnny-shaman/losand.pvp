@@ -1,7 +1,7 @@
 (() => {
   const _ = require("losand");
   const {offing, ansing} = {offing: _([]), ansing: _([])};
-  module.exports = (dir, file) =>_(require('http').createServer(
+  module.exports = (dir, file) => _(require('http').createServer(
     _(require('express'))
     .map($ => ({
       app: $(),
