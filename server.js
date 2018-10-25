@@ -12,7 +12,10 @@
         a.use(require('cors')());
         a.use($.static(dir));
         a.set('view options', {layout: false});
-        a.get('/', (req, res) => res.render(file));
+        a.get('/', (req, res) => {
+          res.status(200);
+          res.render(file);
+        });
       })._
     )._
   ))
