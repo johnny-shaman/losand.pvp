@@ -12,33 +12,39 @@
         a.use(require('cors')());
         a.use($.static(dir));
         a.set('view options', {layout: false});
-        a.get('/', (req, res) => {
-          res.status(200);
-          res.render(file);
-        });
+        a.get('/', (req, res) => res.status(200).render(file));
       })._
     )._
   ))
   .$(sv => _(new (require('ws').Server)({server : sv})).on({
     connection: ws => _(
-      offing._.length <= 0 ?
-      offing.$(a => a.push(
+      offing._.length <= 0
+      ? offing.$(a => a.push(
         _(ws)
         .$(s => s.send(_(false).json))
         .on({
-          'message': m => _(ws).draw({sdp: m})
+          'message': sdp => _(ws).draw({sdp})
         })._
-      )) :
-      ansing.$(a => a.push(
+      ))
+      : ansing.$(a => a.push(
         _(ws)
         .$(s => s.send(offing._[0].sdp))
         .on({
-          'message': m => ansing.map(() => a.filter(v => v !== ws || offing.$(o => {
-            o[0].send(m);
-            o[0].close();
-            o.shift();
-            v.close();
-          }) && false))
+          'message': m => ansing.$(
+            a => (
+              _(a.findIndex(v => v === ws))
+              .map(i => a.splice(i, 1))
+              .$(s => s[0].close()),
+              offing.$(
+                o => _(
+                  o.shift()
+                )
+                .been
+                .send(m)
+                .close()
+              )
+            )
+          )
         })._
       ))
     )
