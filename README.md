@@ -7,8 +7,6 @@
 npm i losand.pvp
 ~~~
 
-
-
 ### import server.js file
 ~~~javascript
 require("losand.pvp")(__dirname + '/public', 'index.html', port, ip);
@@ -19,15 +17,17 @@ require("losand.pvp")(__dirname + '/public', 'index.html', port, ip);
 You use it tags
 ~~~html
   <script src="https://cdn.jsdelivr.net/npm/losand@1.4.0/losand.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.0/dsand.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.0/pvp.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.2/dsand.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.2/pvp.js"></script>
   <script>
     _($.role).draw({
-      onPvP (channel) {
-        // Anything do when connection Established and 
+      pvpCE (channel) {
+        /* Anything do when connection Established
+           Channel is WebRTC Data Channel 
+        */
       }
     })
-    PvP()();
+    PvP()()();
   </script>
 ~~~
 
@@ -36,3 +36,25 @@ node server.js
 ~~~
 
 and access the two clients;
+
+## Usage on BrowserSide PvP function
+```javascript
+pvp(
+  // 1st Negotiation info
+  {
+  blockedUserList: [],
+  gameRating: 1000,
+  friendOnry: true
+})(
+  // 2nd Custom Origin
+  "https://test.io/"
+)(
+  // 3rd STUN Address or TURNServer Authentication info Object
+  "stun:l.google...",
+  {
+    url: "turn:...",
+    credential: "...",
+    username: ""
+  }
+)
+```
