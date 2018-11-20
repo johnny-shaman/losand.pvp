@@ -17,8 +17,8 @@ require("losand.pvp")(__dirname + '/public', 'index.html', port, ip);
 You use it tags
 ~~~html
   <script src="https://cdn.jsdelivr.net/npm/losand@1.4.0/losand.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.2/dsand.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.2/pvp.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.5/dsand.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.5/pvp.js"></script>
   <script>
     _($.role).draw({
       pvpCE (channel) {
@@ -39,7 +39,7 @@ and access the two clients;
 
 ## Usage on BrowserSide PvP function
 ```javascript
-pvp(
+PvP(
   // 1st Negotiation info
   {
   blockedUserList: [],
