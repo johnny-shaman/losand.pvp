@@ -17,14 +17,18 @@ require("losand.pvp")(__dirname + '/public', 'index.html', port, ip);
 You use it tags
 ~~~html
   <script src="https://cdn.jsdelivr.net/npm/losand@1.4.0/losand.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.5/dsand.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dsand@0.4.5/pvp.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.5.55/dsand.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.5.55/pvp.js"></script>
   <script>
     _($.role).draw({
       pvpCE (channel) {
         /* Anything do when connection Established
            Channel is WebRTC Data Channel 
         */
+        $(channel).class("hear").on("message");
+      },
+      hear (e) {
+        alert(e.data);
       }
     })
     PvP()()();
@@ -57,4 +61,7 @@ PvP(
     username: ""
   }
 )
+
+// $.pvp get's WebRTC DataChannel Object
+$.pvp.send("hello");
 ```
