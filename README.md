@@ -16,9 +16,9 @@ require("losand.pvp")(__dirname + '/public', 'index.html', port, ip);
 ### Creat a public folder and make in a index.html
 You use it tags
 ~~~html
-  <script src="https://cdn.jsdelivr.net/npm/losand@1.4.0/losand.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dsand@0.5.55/dsand.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dsand@0.5.55/pvp.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/losand@1.5.0/losand.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.6.3/dsand.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dsand@0.6.3/pvp.js"></script>
   <script>
     _($.role).draw({
       pvpCE (channel) {

@@ -1,4 +1,5 @@
 (() => {
+  'use strict';
   const _ = require("losand");
   const {offing, ansing} = {offing: _([]), ansing: _([])};
   module.exports = (dir, file, port, ip) => _(require('http').createServer(
